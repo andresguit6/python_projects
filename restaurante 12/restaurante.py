@@ -1,4 +1,4 @@
-"""from tkinter import *
+from tkinter import *
 import random
 import datetime
 from tkinter import filedialog, messagebox
@@ -570,4 +570,4 @@ botones_guardados[15].config(command=lambda: click_boton("/"))
 
 
 # evitar que la aplicacion se cierre(loop para que la ventana se vea constantemente)
-aplicacion.mainloop()"""
+aplicacion.mainloop()
