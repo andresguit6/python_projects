@@ -1,4 +1,4 @@
-"""import pygame
+import pygame
 import random
 import math
 from pygame import mixer
@@ -199,4 +199,4 @@ while se_ejecuta:
     mostrar_texto(texto_x, texto_y)
 
     # actualizar
-    pygame.display.update()"""
+    pygame.display.update()
