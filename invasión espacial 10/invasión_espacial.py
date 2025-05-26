@@ -13,10 +13,10 @@ pantalla = pygame.display.set_mode((800,600))
 # para colocarle nombre a la ventana
 pygame.display.set_caption("Invación espacíal")
 # descargo la imagen en png de flaticon y la guardo donde estoy trabajando (dia 10)
-icono = pygame.image.load("ovni-volando.png")
+icono = pygame.image.load("ovni (2).png")
 # para mostrar el icono en la pantalla
 pygame.display.set_icon(icono)
-fondo = pygame.image.load("Fondo.jpg")
+fondo = pygame.image.load("fondo-de-pantalla-abstracto-de-nebulosa-ultra-detallado-4 (1).jpg")
 
 
 # agregar musica
@@ -26,7 +26,7 @@ mixer.music.play(-1)
 
 
 # variables del jugador
-img_jugador = pygame.image.load("nave_espacial.png")
+img_jugador = pygame.image.load("cohete.png")
 # para que quede a la mitad se divide 800en dos que es el tamaño de pantalla, da 400 y a eso se le resta la
 # mitad de lo que mide la imagen si mide 64/2 = 32 entonces 400-32 = 368 jugador_X = 368
 # si se quiere que la imagen quede tocando el inicio de pantalla (600 el total de la pantalla - altura jugador 64)
@@ -45,14 +45,14 @@ enemigo_Y_cambio = []
 cantidad_enemigos = 8
 
 for e in range(cantidad_enemigos):
-    img_enemigo.append(pygame.image.load("enemigo.png"))
+    img_enemigo.append(pygame.image.load("enemigo (2).png"))
     enemigo_X.append(random.randint(0,736))
     enemigo_y.append(random.randint(50,200))
     enemigo_X_cambio.append(0.5)
     enemigo_Y_cambio.append(50)
 
 # variables de la bala
-img_bala = pygame.image.load("bala.png")
+img_bala = pygame.image.load("bala (1).png")
 bala_X = 0
 bala_y = 500
 bala_X_cambio = 0
@@ -109,8 +109,11 @@ def hay_colision(x_1, y_1, x_2, y_2):
 
 
 # este codigo se ejecuta para que muestre la pantalla hasta que el usuario le de en la X
+# Controlar la velocidad del juego
+reloj = pygame.time.Clock()
 se_ejecuta = True
 while se_ejecuta:
+
     # se coloca el RGB de pantalla (color)
     # para cambiar de color del fondo .fill(relleno) https://colorspire.com/rgb-color-wheel/ para mirar los colores
     # pantalla.fill((205, 144, 228)) # se pone al incio para que no tape nada, si se de ultimo tapa lo que se hace
@@ -157,7 +160,7 @@ while se_ejecuta:
     for e in range(cantidad_enemigos):
 
         # fin del juego
-        if enemigo_y[e] > 500:
+        if enemigo_y[e] > 450:
             for k in range(cantidad_enemigos):
                 enemigo_y[k] = 1000
             texto_final()
@@ -200,3 +203,5 @@ while se_ejecuta:
 
     # actualizar
     pygame.display.update()
+    reloj.tick(400)
+
